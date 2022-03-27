@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -25,5 +26,10 @@ public class CountryService {
     //Save new country
     public void save(Country country) {
         countryRepository.save(country);
+    }
+
+    //This function will return the particular id for the country --> Get by id
+    public Optional<Country> findById(Integer id) {
+        return countryRepository.findById(id);
     }
 }

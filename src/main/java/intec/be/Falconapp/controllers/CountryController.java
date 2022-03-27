@@ -6,10 +6,10 @@ import intec.be.Falconapp.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class CountryController {
@@ -42,5 +42,24 @@ public class CountryController {
 
         //Will redirect to the same page of the updated list of countries
         return "redirect:/countries";
+    }
+
+    // Function for displaying the content of the model pop up
+    @RequestMapping("countries/findById")
+    // It will not return as JSON or redirect to page that we will display a JSON. but it will return it on the pop-up
+    @ResponseBody
+    public Optional<Country> findById(Integer id) {
+
+        // Will return the same content of the model pop up
+        return countryService.findById(id);
+
+    }
+
+
+    @RequestMapping(value = "/countries/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(Country country) {
+        countryService.save(country);
+        return "redirect:/countries";
+
     }
 }
