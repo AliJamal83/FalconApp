@@ -2,8 +2,8 @@ package intec.be.Falconapp.models;
 
 
 /*
- We need to implement this class because each country have many states and in order to make a relationship between
- the country and the state we have implemented state class.
+ We need to implement this class because each country.js have many states and in order to make a relationship between
+ the country.js and the state we have implemented state class.
 
  */
 import javax.persistence.Entity;
@@ -39,7 +39,7 @@ public class State {
 	@JoinColumn(name="countryid", insertable=false, updatable=false)
 	private Country country;
 
-	// This is the foreign key for country and the relations between state and country will be base on this "countryid".
+	// This is the foreign key for country.js and the relations between state and country.js will be base on this "countryid".
 	private int countryid;
 	
 	private String details;

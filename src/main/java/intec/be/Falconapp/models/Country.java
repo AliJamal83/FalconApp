@@ -89,11 +89,11 @@ public class Country {
 	}
 
 	/*
-            1. Each country have many states, so we have to implement a class calls state in order to set the relation between
-               country class and state class
+            1. Each country.js have many states, so we have to implement a class calls state in order to set the relation between
+               country.js class and state class
             2. When we add the mappedBy we are informed spring that there is a relationship has already been created and we
                only and hibernate will know that the relation is handel by the state class.
-            3. This list will get back a list for all the states in the country
+            3. This list will get back a list for all the states in the country.js
         */
 	@OneToMany(mappedBy="country")
 	private List<State> states;

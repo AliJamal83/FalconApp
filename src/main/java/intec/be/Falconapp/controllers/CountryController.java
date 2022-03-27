@@ -34,8 +34,8 @@ public class CountryController {
     }
 
 
-    // this function will refresh the page and update it when we add new country to the list, it will return updated list of countries.
-    // it will take the country from the add form and will redirect it to the list of the countries.
+    // this function will refresh the page and update it when we add new country.js to the list, it will return updated list of countries.
+    // it will take the country.js from the add form and will redirect it to the list of the countries.
     @PostMapping("/countries/addNewCountry")
     public String addNewCountry(Country country) {
         countryService.save(country);
