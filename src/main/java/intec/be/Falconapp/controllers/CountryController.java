@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -30,5 +31,16 @@ public class CountryController {
         model.addAttribute("countries", countryList);
         return "Country";
 
+    }
+
+
+    // this function will refresh the page and update it when we add new country to the list, it will return updated list of countries.
+    // it will take the country from the add form and will redirect it to the list of the countries.
+    @PostMapping("/countries/addNewCountry")
+    public String addNewCountry(Country country) {
+        countryService.save(country);
+
+        //Will redirect to the same page of the updated list of countries
+        return "redirect:/countries";
     }
 }
