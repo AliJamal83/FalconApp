@@ -1,8 +1,9 @@
 package intec.be.Falconapp.controllers;
 
 
-import com.sun.xml.bind.v2.runtime.unmarshaller.UnmarshallingContext;
+import intec.be.Falconapp.models.Country;
 import intec.be.Falconapp.models.State;
+import intec.be.Falconapp.services.CountryService;
 import intec.be.Falconapp.services.StateService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,12 +20,18 @@ public class StateController {
     @Autowired
     private StateService stateService;
 
+    @Autowired
+    private CountryService countryService;
+
 
 
     @GetMapping("/states")
-    public String getState(Model model) {
+    public String getStates(Model model) {
         List<State> stateList = stateService.getStates();
         model.addAttribute("states", stateList);
+
+        List<Country> countryList = countryService.getCountries();
+        model.addAttribute("countries", countryList);
         return "State";
     }
 

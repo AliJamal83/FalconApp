@@ -321,7 +321,7 @@
                         <i class="icon_house_alt"></i>
                         <span>Dashboard</span>
                     </a>
-                </li>
+                    <!-- VEHICLES COLUMN IN THE DASHBOARD   -->
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon_document_alt"></i>
@@ -329,10 +329,13 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="form_component.html">Form Elements</a></li>
-                        <li><a class="" href="form_validation.html">Form Validation</a></li>
+                        <li><a class="" th:href="@{/vehicles}">Vehicle Data</a></li>
+                        <li><a class="" th:href="@{/vehiclemaintainence}">Maintenance</a></li>
+                        <li><a class="" th:href="@{/vehiclemovement}">Movements</a></li>
+                        <li><a class="" th:href="@{/vehiclehires}">Hires</a></li>
                     </ul>
                 </li>
+                <!-- PARAMETERS IN THE DASHBOARD-->
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon_desktop"></i>
@@ -340,49 +343,63 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="general.html">Components</a></li>
-                        <li><a class="" href="buttons.html">Buttons</a></li>
-                        <li><a class="" href="grids.html">Grids</a></li>
+                        <li><a class="" th:href="@{/vehiclemakes}">Vehicle Make</a></li>
+                        <li><a class="" th:href="@{/vehicletypes}">Vehicle Types</a></li>
+                        <li><a class="" th:href="@{/vehiclemodels}">Vehicle Models</a></li>
+                        <li><a class="" th:href="@{/vehiclestatuses}">Status Values</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a class="" href="widgets.html">
-                        <i class="icon_genius"></i>
-                        <span>People</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="" href="chart-chartjs.html">
-                        <i class="icon_piechart"></i>
-                        <span>Human Resource</span>
-
-                    </a>
-
-                </li>
+                <!-- PEOPLE COLUMN IN THE DASHBOARD    -->
 
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
-                        <i class="icon_table"></i>
+                        <i class="icon_desktop"></i>
+                        <span>People</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" th:href="@{/employees}">Employees</a></li>
+                        <li><a class="" th:href="@{/clients}">Clients</a></li>
+                        <li><a class="" th:href="@{/suppliers}">Suppliers</a></li>
+                        <li><a class="" th:href="@{/contacts}">Contacts</a></li>
+                        <li><a class="" th:href="@{/users}">Users</a></li>
+                    </ul>
+                </li>
+                <!-- HR COLUMN IN THE DASHBOARD    -->
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon-desktop"></i>
+                        <span>Human Resource</span>
+                        <span class="menu-arrow arrow_carrot-right"></span>
+                    </a>
+                    <ul class="sub">
+                        <li><a class="" th:href="@{/jobtitle}">Job Title</a></li>
+                        <li><a class="" th:href="@{/employeetypes}">Employee Type</a></li>
+                    </ul>
+                </li>
+                <!-- ACCOUNT COLUMN IN THE DASHBOARD -->
+                <li class="sub-menu">
+                    <a href="javascript:;" class="">
+                        <i class="icon_desktop"></i>
                         <span>Accounts</span>
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="basic_table.html">Basic Table</a></li>
+                        <li><a class="" th:href="@{/invoices}">Invoices</a></li>
+                        <li><a class="" th:href="@{/invoicesstatuses}">Invoices Status</a></li>
                     </ul>
                 </li>
-
+                <!--  GLOBALS COLUMN IN THE DASHBOARD    -->
                 <li class="sub-menu ">
                     <a href="javascript:;" class="">
                         <i class="icon_documents_alt"></i>
-                        <span>Globals</span>
+                        <span>Global</span>
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" href="profile.html">Profile</a></li>
-                        <li><a class="" href="login.html"><span>Login Page</span></a></li>
-                        <li><a class="" href="Contact.html"><span>Contact Page</span></a></li>
-                        <li><a class="active" href="blank.html">Blank Page</a></li>
-                        <li><a class="" href="404.html">404 Error</a></li>
+                        <li><a class="" th:href="@{/countries}">Countries</a></li>
+                        <li><a class="" th:href="@{/states}"><span>States</span></a></li>
+                        <li><a class="" th:href="@{/locations}"><span>Locations</span></a></li>
                     </ul>
                 </li>
 
@@ -419,19 +436,19 @@
                             <th><i class="icon_table"></i>Description</th>
                             <th><i class="icon_table"></i>Capital</th>
                             <th><i class="icon_table"></i>Code</th>
-                            <th><i class="icon_table"></i>Actions</th>
+                            <th><i class="icon_cogs"></i>Actions</th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr th:each="country:${countries}">
-                                <td th:text="${country.id}"></td>
-                                <td th:text="${country.description}"></td>
-                                <td th:text="${country.capital}"></td>
-                                <td th:text="${country.code}"></td>
+                                <td th:text="${country.id}">Id</td>
+                                <td th:text="${country.description}">Description</td>
+                                <td th:text="${country.capital}">Capital</td>
+                                <td th:text="${country.code}">Details</td>
                                 <td>
                                     <div class="btn-group">
                                         <a th:href="@{/countries/findById/(id=${country.id})}" class="btn btn-primary" id="editButton"><i class ="icon_pencil-edit"></i></a>
-                                        <a class="btn btn-success" id="detailsButton"><i class ="icon_document_alt"></i></a>
+                                        <a class="btn btn-success" id="detailsButton" th:href="@{/countries/findById/(id=${country.id})}"><i class="icon_document_alt"></i></a>
                                         <a th:href="@{/countries/delete/(id=${country.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
                                     </div>
                                 </td>
@@ -441,8 +458,7 @@
                 </div>
             </div>
 
-
-                    <!--            Page content goes here-->
+                    <!-- Page content goes here-->
 
                     <!-- page end-->
         </section>
@@ -461,7 +477,7 @@
     </div>
 </section>
 <!-- container section end -->
-
+<!-- ADD NEW MODAL-->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -513,7 +529,6 @@
     </div>
 </div>
 
-<!-- Extra button for update and delete country.js-->
 <!-- EDIT MODAL-->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
