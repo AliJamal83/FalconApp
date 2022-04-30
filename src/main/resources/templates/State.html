@@ -437,7 +437,7 @@
                             <td th:text="${state.details}">Details</td>
                             <td>
                                 <div class="btn-group">
-                                    <a class="btn btn-primary" th:href="@{/states/findById/(id=${state.id})}"><i class="icon_pencil-edit"></i></a>
+                                    <a class="btn btn-primary" id="editButton" th:href="@{/states/findById/(id=${state.id})}"><i class="icon_pencil-edit"></i></a>
                                     <a class="btn btn-success" id="detailsButton" th:href="@{/states/findById/(id=${state.id})}"><i class="icon_document_alt"></i></a>
                                     <a class="btn btn-danger"  id="deleteButton" th:href="@{/states/delete/(id=${state.id})}"><i class="icon_close_alt2"></i></a>
                                 </div>
@@ -466,7 +466,7 @@
 </section>
 <!-- container section end -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <form th:action="@{/states/addNewState}" method="post">
+    <form th:action="@{/states/addNew}" method="post">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
