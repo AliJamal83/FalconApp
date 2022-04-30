@@ -24,18 +24,16 @@ public class StateController {
     private CountryService countryService;
 
 
-
-    @GetMapping("/states")
-    public String getStates(Model model) {
-        List<State> stateList = stateService.getStates();
-        model.addAttribute("states", stateList);
-
-        List<Country> countryList = countryService.getCountries();
-        model.addAttribute("countries", countryList);
-        return "State";
+    // Get All States
+    @GetMapping("states")
+    public String findAll(Model model) {
+       model.addAttribute("states", stateService.findAll());
+       model.addAttribute("countries", countryService.findAll());
+       return "state";
     }
 
 
+    //Add State
     @PostMapping("/state/addNewState")
     public String addNewState(State state) {
         stateService.save(state);
@@ -51,7 +49,7 @@ public class StateController {
 
 
     @RequestMapping(value = "/states/update", method= {RequestMethod.PUT, RequestMethod.GET})
-    public String Update(State state) {
+    public String update(State state) {
         stateService.save(state);
         return "redirect:/states";
     }

@@ -19,8 +19,8 @@ public class StateService {
     @Autowired
     private StateRepository stateRepository;
 
-    //Return list of states
-    public List<State> getStates() {
+    //Get All States
+    public List<State> findAll() {
         return stateRepository.findAll();
 
     }
@@ -30,12 +30,14 @@ public class StateService {
         stateRepository.save(state);
     }
 
-    //This function will return the particular id for the state --> Get by id
+
+
+    //Get State By id
     public Optional<State> findById(Integer id) {
         return stateRepository.findById(id);
     }
 
-    // Delete state from the state list
+    // Delete state
     public void delete(Integer id) {
         stateRepository.deleteById(id);
     }

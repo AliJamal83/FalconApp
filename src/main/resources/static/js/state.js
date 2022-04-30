@@ -2,7 +2,7 @@
 
 $('document').ready(function() {
 
-    $('.table #editButton').on('click',function(event){
+    $('.table .btn-primary').on('click',function(event){
         event.preventDefault();
         var href= $(this).attr('href');
         $.get(href, function(state, status){
@@ -25,7 +25,7 @@ $('document').ready(function() {
             $('#nameDetails').val(state.name);
             $('#detailsDetails').val(state.details);
             $('#lastModifiedByDetails').val(state.lastModifiedBy);
-            // $('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
+            $('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
         });
         $('#detailsModal').modal();
     });

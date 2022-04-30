@@ -18,7 +18,7 @@ public class CountryService {
     private CountryRepository countryRepository;
 
     //Return list of countries
-    public List<Country> getCountries() {
+    public List<Country> findAll() {
         return countryRepository.findAll();
 
     }

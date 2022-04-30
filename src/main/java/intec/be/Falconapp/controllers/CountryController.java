@@ -22,10 +22,10 @@ public class CountryController {
     //To pass the list of the countries to the html we need to put a Model object as a parameter to this method.
     //after that we have to place the countryList into this Model.
     @GetMapping("/countries")
-    public String getCountries(Model model) {
+    public String findAll(Model model) {
 
         //List of countries will return all the list of the countries
-        List<Country> countryList = countryService.getCountries();
+        List<Country> countryList = countryService.findAll();
 
         // Add the countries attribute countries (countryList) to the model.
         model.addAttribute("countries", countryList);

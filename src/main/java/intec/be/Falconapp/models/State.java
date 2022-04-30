@@ -39,8 +39,8 @@ public class State {
 	@JoinColumn(name="countryid", insertable=false, updatable=false)
 	private Country country;
 
-	// This is the foreign key for country.js and the relations between state and country.js will be base on this "countryid".
-	private int countryid;
+	// This is the foreign key for country.js and the relations between state and country.js will be base on this "countryId".
+	private Integer countryid;
 	
 	private String details;
 	
