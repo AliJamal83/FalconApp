@@ -310,10 +310,10 @@
         <div id="sidebar" class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu">
-                <li class="">
-                    <a class="" href="index.html">
+                <li class="active">
+                    <a class="" th:href="@{/index}">
                         <i class="icon_house_alt"></i>
-                        <span>Dashboard</span>
+                        <span>Manu</span>
                     </a>
                 </li>
                 <!-- VEHICLES COLUMN IN THE DASHBOARD   -->
@@ -325,11 +325,12 @@
                     </a>
                     <ul class="sub">
                         <li><a class="" th:href="@{/vehicles}">Vehicle Data</a></li>
-                        <li><a class="" th:href="@{/vehicleMaintainences}">Maintenance</a></li>
-                        <li><a class="" th:href="@{/vehicleMovements}">Movements</a></li>
-                        <li><a class="" th:href="@{/vehicleHires}">Hires</a></li>
+                        <li><a class="" th:href="@{/vehiclemaintenance}">Maintenance</a></li>
+                        <li><a class="" th:href="@{/vehiclemovements}">Movements</a></li>
+                        <li><a class="" th:href="@{/vehiclehires}">Hires</a></li>
                     </ul>
                 </li>
+
                 <!-- PARAMETERS IN THE DASHBOARD-->
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
@@ -338,12 +339,13 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" th:href="@{/vehicleMakes}">Vehicle Make</a></li>
-                        <li><a class="" th:href="@{/vehicleTypes}">Vehicle Types</a></li>
-                        <li><a class="" th:href="@{/vehicleModels}">Vehicle Models</a></li>
-                        <li><a class="" th:href="@{/vehicleStatuses}">Status Values</a></li>
+                        <li><a class="" th:href="@{/vehiclemakes}">Vehicle Make</a></li>
+                        <li><a class="" th:href="@{/vehicletypes}">Vehicle Types</a></li>
+                        <li><a class="" th:href="@{/vehiclemodels}">Vehicle Models</a></li>
+                        <li><a class="" th:href="@{/vehiclestatuses}">Status Values</a></li>
                     </ul>
                 </li>
+
                 <!-- PEOPLE COLUMN IN THE DASHBOARD    -->
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
@@ -356,19 +358,19 @@
                         <li><a class="" th:href="@{/clients}">Clients</a></li>
                         <li><a class="" th:href="@{/suppliers}">Suppliers</a></li>
                         <li><a class="" th:href="@{/contacts}">Contacts</a></li>
-                        <li><a class="" th:href="@{/users}">User</a></li>
+                        <li><a class="" th:href="@{/users}">Users</a></li>
                     </ul>
                 </li>
                 <!-- HR COLUMN IN THE DASHBOARD    -->
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
-                        <i class="icon-desktop"></i>
-                        <span>HR Settings</span>
+                        <i class="icon_desktop"></i>
+                        <span>Human Resource</span>
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" th:href="@{/jobTitles}">Job Titles</a></li>
-                        <li><a class="" th:href="@{/employeeTypes}">Employee Types</a></li>
+                        <li><a class="" th:href="@{/jobtitles}">Job Titles</a></li>
+                        <li><a class="" th:href="@{/employeetypes}">Employee Types</a></li>
                     </ul>
                 </li>
                 <!-- ACCOUNT COLUMN IN THE DASHBOARD -->
@@ -380,28 +382,29 @@
                     </a>
                     <ul class="sub">
                         <li><a class="" th:href="@{/invoices}">Invoices</a></li>
-                        <li><a class="" th:href="@{/invoiceStatuses}">Invoices Status Values</a></li>
+                        <li><a class="" th:href="@{/invoicestatuses}">Invoice Status Values</a></li>
                     </ul>
                 </li>
+
                 <!--  GLOBALS COLUMN IN THE DASHBOARD    -->
-                <li class="sub-menu ">
+                <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon_documents_alt"></i>
-                        <span>Globals</span>
+                        <span>Global</span>
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
                         <li><a class="" th:href="@{/countries}">Countries</a></li>
                         <li><a class="" th:href="@{/states}"><span>States</span></a></li>
                         <li><a class="" th:href="@{/locations}"><span>Locations</span></a></li>
+
                     </ul>
                 </li>
 
             </ul>
-            <!-- sidebar menu end-->
         </div>
     </aside>
-    <!--sidebar end-->
+            <!-- sidebar menu end-->
 
     <!--main content start-->
     <section id="main-content">
@@ -421,7 +424,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <!--  Modal Popup  -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add New Country</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">New State</button>
                     <!-- Implement the list of states  -->
                     <table class="table table-striped table-advance table-hover">
                         <tbody>
