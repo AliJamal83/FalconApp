@@ -14,8 +14,10 @@ import java.util.Optional;
 @Controller
 public class StateController {
 
-    @Autowired private StateService stateService;
-    @Autowired private CountryService countryService;
+    @Autowired
+    private StateService stateService;
+    @Autowired
+    private CountryService countryService;
 
     //Get All States
     @GetMapping("states")
