@@ -20,17 +20,19 @@ import java.util.Optional;
 public class LocationController {
 
 
-    @Autowired private LocationService locationService;
-    @Autowired private CountryService countryService;
-    @Autowired private StateService stateService;
-
+    @Autowired
+    private LocationService locationService;
+    @Autowired
+    private CountryService countryService;
+    @Autowired
+    private StateService stateService;
 
 
     @GetMapping("/location")
     public String findAll(Model model) {
         List<State> stateList = stateService.findAll();
         List<Country> countryList = countryService.findAll();
-        List<Location> locationList = locationService.findAll();
+        List<Location> locationList = locationService.getLocations();
 
         model.addAttribute("countries", countryList);
         model.addAttribute("locations", locationList);
@@ -42,19 +44,11 @@ public class LocationController {
 
     // Add New Location
     @PostMapping("/locations/addNew")
-    public String addNew(Location location){
-        locationService.save(location);
-        return"redirect:/locations";
-
-    }
-
-    // Update Location
-    @RequestMapping(value = "/locations/update", method = {RequestMethod.PUT, RequestMethod.GET})
-    private String update(Location location){
+    public String addNew(Location location) {
         locationService.save(location);
         return "redirect:/locations";
-    }
 
+    }
 
     @RequestMapping("locations/findById")
     @ResponseBody
@@ -63,16 +57,21 @@ public class LocationController {
 
     }
 
-    // Delete Location
-    @RequestMapping(value = "/locations", method = {RequestMethod.DELETE, RequestMethod.GET})
-    public String delete(Integer id){
-        locationService.delete(id);
-        return"redirect:/location";
+
+    // Update Location
+    @RequestMapping(value = "/locations/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    private String update(Location location) {
+        locationService.save(location);
+        return "redirect:/locations";
     }
 
 
-
-
+    // Delete Location
+    @RequestMapping(value = "/locations", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(Integer id) {
+        locationService.delete(id);
+        return "redirect:/locations";
+    }
 
 
 }

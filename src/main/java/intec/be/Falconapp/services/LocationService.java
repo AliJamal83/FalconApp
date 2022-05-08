@@ -16,8 +16,8 @@ public class LocationService {
     @Autowired
     private LocationRepository locationRepository;
 
-    //Get All Locations
-    public List<Location> findAll() {
+    //Get All Locations this method will return a list of countries
+    public List<Location> getLocations() {
         return locationRepository.findAll();
     }
 

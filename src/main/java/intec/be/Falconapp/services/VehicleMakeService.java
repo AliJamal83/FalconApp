@@ -12,11 +12,12 @@ import java.util.Optional;
 @Service
 public class VehicleMakeService {
 
+
     @Autowired
     private VehicleMakeRepository vehicleMakeRepository;
 
-    //Get All Vehicle make
-    public List<VehicleMake> findAll() {
+    //Get All Vehicle make --> will return list of vehicles
+    public List<VehicleMake> getAllVehicleMakes() {
         return vehicleMakeRepository.findAll();
     }
 

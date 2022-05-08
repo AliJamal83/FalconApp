@@ -21,7 +21,7 @@ public class VehicleMakeController {
     //Get All Vehicle Makes
     @GetMapping("/vehicleMakes")
     public String findAll(Model model) {
-        model.addAttribute("vehicleMakes", vehicleMakeService.findAll());
+        model.addAttribute("vehicleMakes", vehicleMakeService.getAllVehicleMakes());
         return "VehicleMake";
 
     }
