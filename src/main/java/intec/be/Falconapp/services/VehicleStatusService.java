@@ -18,7 +18,7 @@ public class VehicleStatusService {
     private VehicleStatusRepository vehicleStatusRepository;
 
     //Get All vehicle status --> this method will return a list of countries
-    public List<VehicleStatus> getVehicleStatus() {
+    public List<VehicleStatus> getAllVehiclesStatus() {
         return vehicleStatusRepository.findAll();
     }
 

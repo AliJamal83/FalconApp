@@ -2,9 +2,7 @@ package intec.be.Falconapp.services;
 
 
 import intec.be.Falconapp.models.InvoiceStatus;
-import intec.be.Falconapp.models.Location;
 import intec.be.Falconapp.repositories.InvoiceStatusRepository;
-import intec.be.Falconapp.repositories.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +17,7 @@ public class InvoiceStatusService {
     private InvoiceStatusRepository invoiceStatusRepository;
 
     //Get All invoices --> this method will return a list of countries
-    public List<InvoiceStatus> getAllInvoices() {
+    public List<InvoiceStatus> findAll() {
         return invoiceStatusRepository.findAll();
     }
 

@@ -2,9 +2,7 @@ package intec.be.Falconapp.services;
 
 
 import intec.be.Falconapp.models.JobTitle;
-import intec.be.Falconapp.models.Location;
 import intec.be.Falconapp.repositories.JobTitleRepository;
-import intec.be.Falconapp.repositories.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +16,7 @@ public class JobTitleService {
     private JobTitleRepository jobTitleRepository ;
 
     //Get All job titles --> this method will return a list of countries
-    public List<JobTitle> getAllJobTitles() {
+    public List<JobTitle> findAll() {
         return jobTitleRepository.findAll();
     }
 

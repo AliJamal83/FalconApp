@@ -18,24 +18,24 @@ public class EmployeeTypeService {
     @Autowired
     private EmployeeTypeRepository employeeTypeRepository;
 
-    //Get All employees --> this method will return a list of countries
-    public List<EmployeeType> getAllEmployees() {
+    //Get All EmployeeTypes
+    public List<EmployeeType> findAll() {
         return employeeTypeRepository.findAll();
     }
 
-    // Get employee By id
+    //Get EmployeeType By Id
     public Optional<EmployeeType> findById(Integer id) {
         return employeeTypeRepository.findById(id);
     }
 
-    // Save New Employee
+    //Delete EmployeeType
+    public void delete(Integer id) {
+        employeeTypeRepository.deleteById(id);
+    }
+
+    //Update EmployeeType
     public void save(EmployeeType employeeType) {
         employeeTypeRepository.save(employeeType);
     }
 
-
-    // Delete employee
-    public void delete(Integer id) {
-        employeeTypeRepository.deleteById(id);
-    }
 }

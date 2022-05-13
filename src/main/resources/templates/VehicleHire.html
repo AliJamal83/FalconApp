@@ -325,9 +325,9 @@
                       </a>
             <ul class="sub">
               <li><a class="" th:href="@{/vehicles}">Vehicle Data</a></li>
-              <li><a class="" th:href="@{/vehicleMaintenances}">Maintenance</a></li>
+              <li><a class="" th:href="@{/vehiclesMaintenance}">Maintenance</a></li>
               <li><a class="" th:href="@{/vehicleMovements}">Movements</a></li>
-              <li><a class="" th:href="@{/vehicleHires}">Hires</a></li>
+              <li><a class="" th:href="@{/vehiclesHire}">Hires</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -337,8 +337,8 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" th:href="@{/vehicleMakes}">Vehicle Make</a></li>
-              <li><a class="" th:href="@{/vehicleTypes}">Vehicle Types</a></li>
+              <li><a class="" th:href="@{/vehicleMakess}">Vehicle Make</a></li>
+              <li><a class="" th:href="@{/vehicleTypess}">Vehicle Types</a></li>
               <li><a class="" th:href="@{/vehicleModels}">Vehicle Models</a></li>
               <li><a class="" th:href="@{/vehicleStatuses}">Status Values</a></li>
             </ul>
@@ -434,16 +434,16 @@
                     <th><i class="icon_table"></i>Date In</th>
                     <th><i class="icon_cogs"></i> Action</th>
                   </tr>
-				 <tr th:each="vehicleHire:${vehicleHires}">
+				 <tr th:each="vehicleHire:${vehiclesHire}">
 					<td th:text="${vehicleHire.id}">Id</td>
 					<td th:text="${vehicleHire.vehicle.name}">Vehicle</td>
 					<td th:text="${vehicleHire.dateOut}">Date Out</td>
 					<td th:text="${vehicleHire.dateIn}">Date In</td>
                     <td>
                       <div class="btn-group">
-                        <a class="btn btn-primary" id="editButton" th:href="@{/vehicleHires/findById/(id=${vehicleHire.id})}"><i class="icon_pencil-edit"></i></a>
-                        <a class="btn btn-success" id="detailsButton" th:href="@{/vehicleHires/findById/(id=${vehicleHire.id})}"><i class="icon_document_alt"></i></a>
-                        <a class="btn btn-danger"  id="deleteButton" th:href="@{/vehicleHires/delete/(id=${vehicleHire.id})}"><i class="icon_close_alt2"></i></a>
+                        <a class="btn btn-primary" id="editButton" th:href="@{/vehiclesHire/findById/(id=${vehicleHire.id})}"><i class="icon_pencil-edit"></i></a>
+                        <a class="btn btn-success" id="detailsButton" th:href="@{/vehiclesHire/findById/(id=${vehicleHire.id})}"><i class="icon_document_alt"></i></a>
+                        <a class="btn btn-danger"  id="deleteButton" th:href="@{/vehiclesHire/delete/(id=${vehicleHire.id})}"><i class="icon_close_alt2"></i></a>
                       </div>
                     </td>
                   </tr>
@@ -473,7 +473,7 @@
 
 
   <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <form th:action="@{/vehicleHires/addNew}" method="post">
+ <form th:action="@{/vehiclesHire/addNew}" method="post">
   <div class="modal-dialog modal-lg" role="document" style="width:70%">
     <div class="modal-content">
       <div class="modal-header">
@@ -590,7 +590,7 @@
 
 
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
- <form th:action="@{/vehicleHires/update}" method="put">
+ <form th:action="@{/vehiclesHire/update}" method="put">
   <div class="modal-dialog modal-lg" role="document" style="width:70%">
     <div class="modal-content">
       <div class="modal-header">

@@ -19,7 +19,7 @@ public class VehicleModelService {
     private VehicleModelRepository vehicleModelRepository;
 
     //Get All vehicle models --> this method will return a list of vehicle models
-    public List<VehicleModel> getVehicleModel() {
+    public List<VehicleModel> getAllVehicleModels() {
         return vehicleModelRepository.findAll();
     }
 

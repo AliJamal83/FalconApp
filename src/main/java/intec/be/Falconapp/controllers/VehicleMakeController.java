@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -21,6 +22,7 @@ public class VehicleMakeController {
     //Get All Vehicle Makes
     @GetMapping("/vehicleMakes")
     public String findAll(Model model) {
+        List<VehicleMake> listOfVehicleMakes = vehicleMakeService.getAllVehicleMakes();
         model.addAttribute("vehicleMakes", vehicleMakeService.getAllVehicleMakes());
         return "VehicleMake";
 

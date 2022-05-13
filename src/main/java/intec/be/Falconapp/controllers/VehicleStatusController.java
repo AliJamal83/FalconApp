@@ -1,15 +1,64 @@
 package intec.be.Falconapp.controllers;
 
 
+import intec.be.Falconapp.models.Country;
+import intec.be.Falconapp.models.Location;
+import intec.be.Falconapp.models.State;
+import intec.be.Falconapp.models.VehicleStatus;
+import intec.be.Falconapp.services.StateService;
+import intec.be.Falconapp.services.VehicleStatusService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class VehicleStatusController {
 
+    @Autowired
+    private VehicleStatusService vehicleStatusService;
+
+
     @GetMapping("/vehicleStatus")
-    public String getVehicleStatus() {
+    public String findAll(Model model) {
+        List<VehicleStatus> listOfVehicleStatus = vehicleStatusService.getAllVehiclesStatus();
+        model.addAttribute("vehicleStatus", vehicleStatusService.getAllVehiclesStatus());
         return "VehicleStatus";
 
+    }
+
+
+    // Add New vehicle status
+    @PostMapping("/vehicleStatus/addNew")
+    public String addNew(VehicleStatus vehicleStatus) {
+        vehicleStatusService.save(vehicleStatus);
+        return "redirect:/vehicleStatuses";
+
+    }
+
+    @RequestMapping("vehicleStatuses/findById")
+    @ResponseBody
+    public Optional<VehicleStatus> findById(Integer id) {
+        return vehicleStatusService.findById(id);
+
+    }
+
+
+    // Update vehicle status
+    @RequestMapping(value = "/vehicleStatus/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    private String update(VehicleStatus vehicleStatus) {
+        vehicleStatusService.save(vehicleStatus);
+        return "redirect:/vehicleStatuses";
+    }
+
+
+    // Delete vehicle status
+    @RequestMapping(value = "/vehicleStatus", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(Integer id) {
+        vehicleStatusService.delete(id);
+        return "redirect:/vehicleStatuses";
     }
 }

@@ -17,7 +17,7 @@ public class LocationService {
     private LocationRepository locationRepository;
 
     //Get All Locations this method will return a list of countries
-    public List<Location> getLocations() {
+    public List<Location> findAll() {
         return locationRepository.findAll();
     }
 

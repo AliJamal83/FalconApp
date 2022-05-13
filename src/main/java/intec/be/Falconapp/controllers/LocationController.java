@@ -32,7 +32,7 @@ public class LocationController {
     public String findAll(Model model) {
         List<State> stateList = stateService.findAll();
         List<Country> countryList = countryService.findAll();
-        List<Location> locationList = locationService.getLocations();
+        List<Location> locationList = locationService.findAll();
 
         model.addAttribute("countries", countryList);
         model.addAttribute("locations", locationList);
