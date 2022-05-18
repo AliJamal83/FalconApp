@@ -2,7 +2,9 @@ package intec.be.Falconapp.services;
 
 
 import intec.be.Falconapp.models.Employee;
+import intec.be.Falconapp.models.User;
 import intec.be.Falconapp.repositories.EmployeeRepository;
+import intec.be.Falconapp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,12 +15,11 @@ import java.util.Optional;
 @Service
 public class EmployeeService {
 
-
     @Autowired
     private EmployeeRepository employeeRepository;
 
     //Get All Employees
-    public List<Employee> findAll() {
+    public List<Employee> getEmployees() {
         return employeeRepository.findAll();
     }
 
@@ -41,4 +42,6 @@ public class EmployeeService {
     public Employee findByUsername(String userName) {
         return employeeRepository.findByUsername(userName);
     }
+
+
 }

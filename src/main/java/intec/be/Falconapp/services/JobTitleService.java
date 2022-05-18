@@ -13,26 +13,25 @@ import java.util.Optional;
 public class JobTitleService {
 
     @Autowired
-    private JobTitleRepository jobTitleRepository ;
+    private JobTitleRepository jobTitleRepository;
 
-    //Get All job titles --> this method will return a list of countries
-    public List<JobTitle> findAll() {
+    //Return list of countries
+    public List<JobTitle> getJobTitles(){
         return jobTitleRepository.findAll();
     }
 
-    // Get job title By id
-    public Optional<JobTitle> findById(Integer id) {
-        return jobTitleRepository.findById(id);
-    }
-
-    // Save New job title
+    //SAve new JobTitle
     public void save(JobTitle jobTitle) {
         jobTitleRepository.save(jobTitle);
     }
 
+    //get by id
+    public Optional<JobTitle> findById(int id) {
+        return jobTitleRepository.findById(id);
+    }
 
-    // Delete job title
     public void delete(Integer id) {
         jobTitleRepository.deleteById(id);
     }
+
 }

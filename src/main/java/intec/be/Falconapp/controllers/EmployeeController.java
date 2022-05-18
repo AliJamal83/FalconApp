@@ -4,15 +4,24 @@ package intec.be.Falconapp.controllers;
 import intec.be.Falconapp.models.*;
 import intec.be.Falconapp.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class EmployeeController {
+
 
     @Autowired
     private EmployeeService employeeService;
@@ -32,15 +41,15 @@ public class EmployeeController {
 
         List<Country> listOfCountries = countryService.findAll();
         List<State> listOfStates = stateService.findAll();
-        List<Employee> listOfEmployees = employeeService.findAll();
-        List<JobTitle> listOfJobTitle = jobTitleService.findAll();
-        List<EmployeeType> listOfEmployeesType = employeeTypeService.findAll();
+        List<Employee> listOfEmployees = employeeService.getEmployees();
+        List<JobTitle> listOfJobTitle = jobTitleService.getJobTitles();
+        List<EmployeeType> listOfEmployeesType = employeeTypeService.getEmployeeTypes();
 
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("states", stateService.findAll());
-        model.addAttribute("employees", employeeService.findAll());
-        model.addAttribute("jobTitles", jobTitleService.findAll());
-        model.addAttribute("employeeTypes", employeeTypeService.findAll());
+        model.addAttribute("employees", employeeService.getEmployees());
+        model.addAttribute("jobTitles", jobTitleService.getJobTitles());
+        model.addAttribute("employeeTypes", employeeTypeService.getEmployeeTypes());
         return "Employee";
 
     }
@@ -71,5 +80,8 @@ public class EmployeeController {
         employeeService.delete(id);
         return "redirect:/employees";
     }
+
+
+
 
 }

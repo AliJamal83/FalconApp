@@ -14,45 +14,36 @@ import java.util.Optional;
 @Controller
 public class VehicleStatusController {
 
-    @Autowired
-    private VehicleStatusService vehicleStatusService;
+    @Autowired  private VehicleStatusService vehicleStatusService;
 
+    @GetMapping("/vehicleStatuses")
+    public String getVehicleStatuss(Model model) {
 
-    @GetMapping("/vehicleStatus")
-    public String findAll(Model model) {
-        List<VehicleStatus> listOfVehicleStatus = vehicleStatusService.findAll();
-        model.addAttribute("vehicleStatus", vehicleStatusService.findAll());
-        return "VehicleStatus";
+        List<VehicleStatus> vehicleStatusList = vehicleStatusService.getVehicleStatuses();
 
+        model.addAttribute("vehicleStatuses", vehicleStatusList);
+        return "vehicleStatus";
     }
 
-
-    // Add New vehicle status
-    @PostMapping("/vehicleStatus/addNew")
+    @PostMapping("/vehicleStatuses/addNew")
     public String addNew(VehicleStatus vehicleStatus) {
         vehicleStatusService.save(vehicleStatus);
         return "redirect:/vehicleStatuses";
-
     }
 
     @RequestMapping("vehicleStatuses/findById")
     @ResponseBody
-    public Optional<VehicleStatus> findById(Integer id) {
+    public Optional<VehicleStatus> findById(int id) {
         return vehicleStatusService.findById(id);
-
     }
 
-
-    // Update vehicle status
-    @RequestMapping(value = "/vehicleStatus/update", method = {RequestMethod.PUT, RequestMethod.GET})
-    private String update(VehicleStatus vehicleStatus) {
+    @RequestMapping(value="/vehicleStatuses/update", method= {RequestMethod.PUT, RequestMethod.GET})
+    public String update(VehicleStatus vehicleStatus) {
         vehicleStatusService.save(vehicleStatus);
         return "redirect:/vehicleStatuses";
     }
 
-
-    // Delete vehicle status
-    @RequestMapping(value = "/vehicleStatus", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value="/vehicleStatuses/delete", method= {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(Integer id) {
         vehicleStatusService.delete(id);
         return "redirect:/vehicleStatuses";

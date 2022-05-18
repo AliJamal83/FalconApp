@@ -16,23 +16,22 @@ public class VehicleMakeService {
     @Autowired
     private VehicleMakeRepository vehicleMakeRepository;
 
-    //Get All Vehicle make --> will return list of vehicles
-    public List<VehicleMake> findAll() {
+    //Return list of countries
+    public List<VehicleMake> getVehicleMakes(){
         return vehicleMakeRepository.findAll();
     }
 
-    //Get All Vehicle make By id
-    public Optional<VehicleMake> findById(Integer id){
+    //SAve new VehicleMake
+    public void save(VehicleMake vehicleMake) {
+        vehicleMakeRepository.save(vehicleMake);
+    }
+
+    //get by id
+    public Optional<VehicleMake> findById(int id) {
         return vehicleMakeRepository.findById(id);
     }
 
-    //Delete VehicleMake
-    public void delete(Integer id){
+    public void delete(Integer id) {
         vehicleMakeRepository.deleteById(id);
-    }
-
-    //Update VehicleMake
-    public void save(VehicleMake vehicleMake){
-        vehicleMakeRepository.save(vehicleMake);
     }
 }

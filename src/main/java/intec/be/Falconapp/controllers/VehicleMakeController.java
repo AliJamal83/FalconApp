@@ -15,43 +15,36 @@ import java.util.Optional;
 public class VehicleMakeController {
 
 
-    @Autowired
-    private VehicleMakeService vehicleMakeService;
+    @Autowired  private VehicleMakeService vehicleMakeService;
 
-    //Get All Vehicle Makes
     @GetMapping("/vehicleMakes")
-    public String findAll(Model model) {
-        List<VehicleMake> listOfVehicleMakes = vehicleMakeService.findAll();
-        model.addAttribute("vehicleMakes", vehicleMakeService.findAll());
-        return "VehicleMake";
+    public String getStates(Model model) {
 
+        List<VehicleMake> vehicleMakeList = vehicleMakeService.getVehicleMakes();
+
+        model.addAttribute("vehicleMakes", vehicleMakeList);
+        return "vehicleMake";
     }
 
-
-    @RequestMapping("/vehicleMakes/findById")
-    @ResponseBody
-    public Optional<VehicleMake> findById(Integer id) {
-        return vehicleMakeService.findById(id);
-    }
-
-
-    //Add New VehicleMake
-    @PostMapping (value = "vehicleMakes/addNew")
-    @ResponseBody
+    @PostMapping("/vehicleMakes/addNew")
     public String addNew(VehicleMake vehicleMake) {
         vehicleMakeService.save(vehicleMake);
         return "redirect:/vehicleMakes";
     }
 
+    @RequestMapping("vehicleMakes/findById")
+    @ResponseBody
+    public Optional<VehicleMake> findById(int id) {
+        return vehicleMakeService.findById(id);
+    }
 
-    @RequestMapping(value ="/vehicleMakes/update", method = {RequestMethod.PUT, RequestMethod.GET})
-    private String update(VehicleMake vehicleMake) {
+    @RequestMapping(value="/vehicleMakes/update", method= {RequestMethod.PUT, RequestMethod.GET})
+    public String update(VehicleMake vehicleMake) {
         vehicleMakeService.save(vehicleMake);
         return "redirect:/vehicleMakes";
     }
 
-
-    @RequestMapping(value = "/vehicleMakes/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value="/vehicleMakes/delete", method= {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(Integer id) {
         vehicleMakeService.delete(id);
         return "redirect:/vehicleMakes";

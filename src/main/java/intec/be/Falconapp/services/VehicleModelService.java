@@ -16,23 +16,21 @@ public class VehicleModelService {
     @Autowired
     private VehicleModelRepository vehicleModelRepository;
 
-    //Get All vehicle models --> this method will return a list of vehicle models
-    public List<VehicleModel> findAll() {
+    //Return list of countries
+    public List<VehicleModel> getVehicleModels(){
         return vehicleModelRepository.findAll();
     }
 
-    // Get vehicle model By id
-    public Optional<VehicleModel> findById(Integer id) {
-        return vehicleModelRepository.findById(id);
-    }
-
-    // Save New vehicle model
+    //SAve new VehicleModel
     public void save(VehicleModel vehicleModel) {
         vehicleModelRepository.save(vehicleModel);
     }
 
+    //get by id
+    public Optional<VehicleModel> findById(int id) {
+        return vehicleModelRepository.findById(id);
+    }
 
-    // Delete vehicle model
     public void delete(Integer id) {
         vehicleModelRepository.deleteById(id);
     }

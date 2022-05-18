@@ -15,24 +15,23 @@ public class VehicleStatusService {
     @Autowired
     private VehicleStatusRepository vehicleStatusRepository;
 
-    //Get All vehicle status --> this method will return a list of countries
-    public List<VehicleStatus> findAll() {
+    //Return list of countries
+    public List<VehicleStatus> getVehicleStatuses(){
         return vehicleStatusRepository.findAll();
     }
 
-    // Get vehicle status By id
-    public Optional<VehicleStatus> findById(Integer id) {
-        return vehicleStatusRepository.findById(id);
-    }
-
-    // Save New vehicle status
+    //SAve new VehicleStatus
     public void save(VehicleStatus vehicleStatus) {
         vehicleStatusRepository.save(vehicleStatus);
     }
 
+    //get by id
+    public Optional<VehicleStatus> findById(int id) {
+        return vehicleStatusRepository.findById(id);
+    }
 
-    // Delete vehicle status
     public void delete(Integer id) {
         vehicleStatusRepository.deleteById(id);
     }
+
 }

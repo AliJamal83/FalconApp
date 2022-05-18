@@ -14,47 +14,38 @@ import java.util.Optional;
 @Controller
 public class VehicleModelController {
 
-    @Autowired
-    private VehicleModelService vehicleModelService;
-
+    @Autowired  private VehicleModelService vehicleModelService;
 
     @GetMapping("/vehicleModels")
-    public String findAll(Model model) {
-        List<VehicleModel> listOfvehicleModels = vehicleModelService.findAll();
-        model.addAttribute("vehicleModels", vehicleModelService.findAll());
-        return "VehicleModel";
+    public String getVehicleModels(Model model) {
 
+        List<VehicleModel> vehicleModelList = vehicleModelService.getVehicleModels();
+
+        model.addAttribute("vehicleModels", vehicleModelList);
+        return "vehicleModel";
     }
 
-
-    // Add New vehicle model
     @PostMapping("/vehicleModels/addNew")
     public String addNew(VehicleModel vehicleModel) {
         vehicleModelService.save(vehicleModel);
-        return "redirect:/vehicleModel";
-
+        return "redirect:/vehicleModels";
     }
 
     @RequestMapping("vehicleModels/findById")
     @ResponseBody
-    public Optional<VehicleModel> findById(Integer id) {
+    public Optional<VehicleModel> findById(int id) {
         return vehicleModelService.findById(id);
-
     }
 
-
-    // Update vehicle model
-    @RequestMapping(value = "/vehicleModels/update", method = {RequestMethod.PUT, RequestMethod.GET})
-    private String update(VehicleModel vehicleModel) {
+    @RequestMapping(value="/vehicleModels/update", method= {RequestMethod.PUT, RequestMethod.GET})
+    public String update(VehicleModel vehicleModel) {
         vehicleModelService.save(vehicleModel);
-        return "redirect:/vehicleModel";
+        return "redirect:/vehicleModels";
     }
 
-
-    // Delete vehicle model
-    @RequestMapping(value = "/vehicleModels", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value="/vehicleModels/delete", method= {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(Integer id) {
         vehicleModelService.delete(id);
-        return "redirect:/vehicleModel";
+        return "redirect:/vehicleModels";
     }
 }

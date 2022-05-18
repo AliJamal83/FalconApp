@@ -37,19 +37,19 @@ public class VehicleController {
 
         List<Vehicle> listOfVehicles = vehicleService.getVehicles();
         List<VehicleType> listOfVehicleTypes = vehicleTypeService.findAll();
-        List<VehicleModel> listOfVehicleModel = vehicleModelService.findAll();
-        List<VehicleMake> listOfVehicleMakes = vehicleMakeService.findAll();
+        List<VehicleModel> listOfVehicleModel = vehicleModelService.getVehicleModels();
+        List<VehicleMake> listOfVehicleMakes = vehicleMakeService.getVehicleMakes();
         List<Location> listOfLocations = locationService.getLocations();
-        List<Employee> listOfEmployees = employeeService.findAll();
+        List<Employee> listOfEmployees = employeeService.getEmployees();
 
 
 
         model.addAttribute("vehicles", vehicleService.getVehicles());
 
-        model.addAttribute("vehicleModels", vehicleModelService.findAll());
-        model.addAttribute("vehicleMakes", vehicleMakeService.findAll());
+        model.addAttribute("vehicleModels", vehicleModelService.getVehicleModels());
+        model.addAttribute("vehicleMakes", vehicleMakeService.getVehicleMakes());
         model.addAttribute("locations", locationService.getLocations());
-        model.addAttribute("employees", employeeService.findAll());
+        model.addAttribute("employees", employeeService.getEmployees());
 
         return "Vehicle";
     }
