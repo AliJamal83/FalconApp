@@ -3,7 +3,6 @@ package intec.be.Falconapp.controllers;
 
 import intec.be.Falconapp.models.VehicleMake;
 import intec.be.Falconapp.services.VehicleMakeService;
-import intec.be.Falconapp.services.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,8 +21,8 @@ public class VehicleMakeController {
     //Get All Vehicle Makes
     @GetMapping("/vehicleMakes")
     public String findAll(Model model) {
-        List<VehicleMake> listOfVehicleMakes = vehicleMakeService.getAllVehicleMakes();
-        model.addAttribute("vehicleMakes", vehicleMakeService.getAllVehicleMakes());
+        List<VehicleMake> listOfVehicleMakes = vehicleMakeService.findAll();
+        model.addAttribute("vehicleMakes", vehicleMakeService.findAll());
         return "VehicleMake";
 
     }

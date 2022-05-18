@@ -16,26 +16,23 @@ public class LocationService {
     @Autowired
     private LocationRepository locationRepository;
 
-    //Get All Locations this method will return a list of countries
-    public List<Location> findAll() {
+    //Return list of countries
+    public List<Location> getLocations(){
         return locationRepository.findAll();
     }
 
-    // Get location By id
-    public Optional<Location> findById(Integer id) {
-        return locationRepository.findById(id);
-    }
-
-    // Save New Location
+    //SAve new Location
     public void save(Location location) {
         locationRepository.save(location);
     }
 
+    //get by id
+    public Optional<Location> findById(int id) {
+        return locationRepository.findById(id);
+    }
 
-    // Delete Location
     public void delete(Integer id) {
         locationRepository.deleteById(id);
     }
-
 
 }

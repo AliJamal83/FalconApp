@@ -28,16 +28,16 @@ public class LocationController {
     private StateService stateService;
 
 
-    @GetMapping("/location")
+    @GetMapping("/locations")
     public String findAll(Model model) {
-        List<State> stateList = stateService.findAll();
+      //  List<State> stateList = stateService.findAll();
         List<Country> countryList = countryService.findAll();
-        List<Location> locationList = locationService.findAll();
+        List<Location> locationList = locationService.getLocations();
 
         model.addAttribute("countries", countryList);
         model.addAttribute("locations", locationList);
-        model.addAttribute("states", stateList);
-        return "Location";
+      //  model.addAttribute("states", stateList);
+        return "location";
 
     }
 

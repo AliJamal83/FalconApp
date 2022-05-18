@@ -16,28 +16,22 @@ public class SupplierService {
     @Autowired
     private SupplierRepository supplierRepository;
 
-
-    //Get All Suppliers
-    public List<Supplier> findAll(){
+    //Return list of suppliers
+    public List<Supplier> getSuppliers(){
         return supplierRepository.findAll();
     }
 
-
-    //Get Supplier By Id
-    public Optional<Supplier> findById(int id) {
-        return supplierRepository.findById(id);
-    }
-
-
-    //Delete Supplier
-    public void delete(int id) {
-        supplierRepository.deleteById(id);
-    }
-
-
-    //Update Supplier
+    //SAve new supplier
     public void save(Supplier supplier) {
         supplierRepository.save(supplier);
     }
 
+    //get by id
+    public Optional<Supplier> findById(int id) {
+        return supplierRepository.findById(id);
+    }
+
+    public void delete(Integer id) {
+        supplierRepository.deleteById(id);
+    }
 }

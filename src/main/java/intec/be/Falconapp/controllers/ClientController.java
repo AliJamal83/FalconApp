@@ -34,11 +34,11 @@ public class ClientController {
     public String findAll(Model model) {
         List<Country> listOfCountries = countryService.findAll();
         List<State> listOfStates = stateService.findAll();
-        List<Client> listOfClients = clientService.findAll();
+        List<Client> listOfClients = clientService.getClients();
 
         model.addAttribute("countries", countryService.findAll());
         model.addAttribute("states", stateService.findAll());
-        model.addAttribute("clients", clientService.findAll());
+        model.addAttribute("clients", clientService.getClients());
         return "client";
     }
 

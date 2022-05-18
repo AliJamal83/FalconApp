@@ -9,7 +9,7 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Vehicle Movements Management Page</title>
+    <title>Vehicle Movement Page</title>
 
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -49,7 +49,7 @@
         </div>
 
         <!--logo start-->
-        <a href="index.html" class="logo">Falcon <span class="lite">Admin</span></a>
+        <a href="index.html" class="logo">Nice <span class="lite">Admin</span></a>
         <!--logo end-->
 
         <div class="nav search-row" id="top_menu">
@@ -313,10 +313,9 @@
                 <li class="active">
                     <a class="" th:href="@{/index}">
                         <i class="icon_house_alt"></i>
-                        <span>Manu</span>
+                        <span>Dashboard</span>
                     </a>
                 </li>
-                <!-- VEHICLES COLUMN IN THE DASHBOARD   -->
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon_document_alt"></i>
@@ -325,13 +324,11 @@
                     </a>
                     <ul class="sub">
                         <li><a class="" th:href="@{/vehicles}">Vehicle Data</a></li>
-                        <li><a class="" th:href="@{/vehiclesMaintenance}">Maintenance</a></li>
+                        <li><a class="" th:href="@{/vehicleMaintenances}">Maintenance</a></li>
                         <li><a class="" th:href="@{/vehicleMovements}">Movements</a></li>
-                        <li><a class="" th:href="@{/vehiclesHire}">Hires</a></li>
+                        <li><a class="" th:href="@{/vehicleHires}">Hires</a></li>
                     </ul>
                 </li>
-
-                <!-- PARAMETERS IN THE DASHBOARD-->
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon_desktop"></i>
@@ -339,14 +336,12 @@
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" th:href="@{/vehicleMakess}">Vehicle Make</a></li>
-                        <li><a class="" th:href="@{/vehicleTypess}">Vehicle Types</a></li>
-                        <li><a class="" th:href="@{/vehiclemodels}">Vehicle Models</a></li>
-                        <li><a class="" th:href="@{/vehiclestatuses}">Status Values</a></li>
+                        <li><a class="" th:href="@{/vehicleMakes}">Vehicle Make</a></li>
+                        <li><a class="" th:href="@{/vehicleTypes}">Vehicle Types</a></li>
+                        <li><a class="" th:href="@{/vehicleModels}">Vehicle Models</a></li>
+                        <li><a class="" th:href="@{/vehicleStatuses}">Status Values</a></li>
                     </ul>
                 </li>
-
-                <!-- PEOPLE COLUMN IN THE DASHBOARD    -->
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon_desktop"></i>
@@ -358,22 +353,21 @@
                         <li><a class="" th:href="@{/clients}">Clients</a></li>
                         <li><a class="" th:href="@{/suppliers}">Suppliers</a></li>
                         <li><a class="" th:href="@{/contacts}">Contacts</a></li>
-                        <li><a class="" th:href="@{/users}">Users</a></li>
+                        <li><a class="" th:href="@{/users}">User</a></li>
                     </ul>
                 </li>
-                <!-- HR COLUMN IN THE DASHBOARD    -->
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon_desktop"></i>
-                        <span>Human Resource</span>
+                        <span>HR Settings</span>
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
-                        <li><a class="" th:href="@{/jobtitles}">Job Titles</a></li>
-                        <li><a class="" th:href="@{/employeetypes}">Employee Types</a></li>
+                        <li><a class="" th:href="@{/jobTitles}">Job Titles</a></li>
+                        <li><a class="" th:href="@{/employeeTypes}">Employee Types</a></li>
                     </ul>
                 </li>
-                <!-- ACCOUNT COLUMN IN THE DASHBOARD -->
+
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon_desktop"></i>
@@ -382,15 +376,14 @@
                     </a>
                     <ul class="sub">
                         <li><a class="" th:href="@{/invoices}">Invoices</a></li>
-                        <li><a class="" th:href="@{/invoicestatuses}">Invoice Status Values</a></li>
+                        <li><a class="" th:href="@{/invoiceStatuses}">Invoice Status Values</a></li>
                     </ul>
                 </li>
 
-                <!--  GLOBALS COLUMN IN THE DASHBOARD    -->
                 <li class="sub-menu">
                     <a href="javascript:;" class="">
                         <i class="icon_documents_alt"></i>
-                        <span>Global</span>
+                        <span>Globals</span>
                         <span class="menu-arrow arrow_carrot-right"></span>
                     </a>
                     <ul class="sub">
@@ -402,16 +395,18 @@
                 </li>
 
             </ul>
+            <!-- sidebar menu end-->
         </div>
     </aside>
-            <!-- sidebar menu end-->
+    <!--sidebar end-->
+
 
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa fa-bars"></i> Pages</h3>
+                    <h3 class="page-header"><i class="fa fa fa-bars"></i> Vehicle Movements</h3>
                     <ol class="breadcrumb">
                         <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
                         <li><i class="fa fa-bars"></i>Pages</li>
@@ -420,8 +415,41 @@
                 </div>
             </div>
             <!-- page start-->
-            Page content goes here
-            <h1>Movement of Vehicles</h1>
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            Vehicle Movements
+                        </header>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add New</button>
+
+                        <table class="table table-striped table-advance table-hover">
+                            <tbody>
+                            <tr>
+                                <th><i class="icon_table"></i> Id</th>
+                                <th><i class="icon_table"></i>Vehicle</th>
+                                <th><i class="icon_table"></i>Date</th>
+                                <th><i class="icon_table"></i> Remarks</th>
+                                <th><i class="icon_cogs"></i> Action</th>
+                            </tr>
+                            <tr th:each="vehicleMovement:${vehicleMovements}">
+                                <td th:text="${vehicleMovement.id}">Id</td>
+                                <td th:text="${vehicleMovement.vehicle.name}">Vehicle</td>
+                                <td th:text="${vehicleMovement.date1}">Date</td>
+                                <td th:text="${vehicleMovement.remarks}">Remarks</td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="btn btn-primary" id="editButton" th:href="@{/vehicleMovements/findById/(id=${vehicleMovement.id})}"><i class="icon_pencil-edit"></i></a>
+                                        <a class="btn btn-success" id="detailsButton" th:href="@{/vehicleMovements/findById/(id=${vehicleMovement.id})}"><i class="icon_document_alt"></i></a>
+                                        <a class="btn btn-danger"  id="deleteButton" th:href="@{/vehicleMovements/delete/(id=${vehicleMovement.id})}"><i class="icon_close_alt2"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
             <!-- page end-->
         </section>
     </section>
@@ -439,6 +467,253 @@
     </div>
 </section>
 <!-- container section end -->
+
+
+
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <form th:action="@{/vehicleMovements/addNew}" method="post">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New Movement Record</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="idAdd" class="col-form-label">Id:</label>
+                        <input type="text" class="form-control" id="idAdd" name="id" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlVehicleAdd" class="col-form-label">Vehicle: </label>
+                        <select class="form-control" id="ddlVehicleAdd" name="vehicleid">
+                            <option>-SELECT-</option>
+                            <option th:each="vehicle : ${vehicles}"
+                                    th:value="${vehicle.id}"
+                                    th:text="${vehicle.name}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlLocation1Add" class="col-form-label">Departed from: </label>
+                        <select class="form-control" id="ddlLocation1Add" name="locationid1">
+                            <option>-SELECT-</option>
+                            <option th:each="location : ${locations}"
+                                    th:value="${location.id}"
+                                    th:text="${location.description}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date1Add" class="col-form-label">Departure Date:</label>
+                        <input type="date" class="form-control" id="date1Add" name="date1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlLocation2Add" class="col-form-label">Arrived at: </label>
+                        <select class="form-control" id="ddlLocation2Add" name="locationid2">
+                            <option>-SELECT-</option>
+                            <option th:each="location : ${locations}"
+                                    th:value="${location.id}"
+                                    th:text="${location.description}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date2Add" class="col-form-label">Arrival date:</label>
+                        <input type="date" class="form-control" id="date2Add" name="date2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="remarksAdd" class="col-form-label">Remarks:</label>
+                        <textarea class="form-control" id="remarksAdd" name="remarks" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <form th:action="@{/vehicleMovements/update}" method="put">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Edit Movement Record</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="idEdit" class="col-form-label">Id:</label>
+                        <input type="text" class="form-control" id="idEdit" name="id" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlVehicleEdit" class="col-form-label">Vehicle: </label>
+                        <select class="form-control" id="ddlVehicleEdit" name="vehicleid">
+                            <option>-SELECT-</option>
+                            <option th:each="vehicle : ${vehicles}"
+                                    th:value="${vehicle.id}"
+                                    th:text="${vehicle.name}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlLocation1Edit" class="col-form-label">Departed from: </label>
+                        <select class="form-control" id="ddlLocation1Edit" name="locationid1">
+                            <option>-SELECT-</option>
+                            <option th:each="location : ${locations}"
+                                    th:value="${location.id}"
+                                    th:text="${location.description}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date1Edit" class="col-form-label">Departure Date:</label>
+                        <input type="date" class="form-control" id="date1Edit" name="date1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlLocation2Edit" class="col-form-label">Arrived at: </label>
+                        <select class="form-control" id="ddlLocation2Edit" name="locationid2">
+                            <option>-SELECT-</option>
+                            <option th:each="location : ${locations}"
+                                    th:value="${location.id}"
+                                    th:text="${location.description}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date2Edit" class="col-form-label">Arrival date:</label>
+                        <input type="date" class="form-control" id="date2Edit" name="date2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="remarksEdit" class="col-form-label">Remarks:</label>
+                        <textarea type="text" class="form-control" id="remarksEdit" name="remarks" rows="3"></textarea>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+    <form>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editModalLabel">Movements Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group">
+                        <label for="idDetails" class="col-form-label">Id:</label>
+                        <input type="text" class="form-control" id="idDetails" name="id" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlVehicleDetails" class="col-form-label">Vehicle: </label>
+                        <select class="form-control" id="ddlVehicleDetails" name="vehicleid">
+                            <option>-SELECT-</option>
+                            <option th:each="vehicle : ${vehicles}"
+                                    th:value="${vehicle.id}"
+                                    th:text="${vehicle.name}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlLocation1Details" class="col-form-label">Departed from: </label>
+                        <select class="form-control" id="ddlLocation1Details" name="locationid1">
+                            <option>-SELECT-</option>
+                            <option th:each="location : ${locations}"
+                                    th:value="${location.id}"
+                                    th:text="${location.description}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date1Details" class="col-form-label">Departure Date:</label>
+                        <input type="text" class="form-control" id="date1Details" name="date1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="ddlLocation2Details" class="col-form-label">Arrived at: </label>
+                        <select class="form-control" id="ddlLocation2Details" name="locationid2">
+                            <option>-SELECT-</option>
+                            <option th:each="location : ${locations}"
+                                    th:value="${location.id}"
+                                    th:text="${location.description}">
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="date2Details" class="col-form-label">Arrival date:</label>
+                        <input type="text" class="form-control" id="date2Details" name="date2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="remarksDetails" class="col-form-label">Remarks:</label>
+                        <input type="text" class="form-control" id="remarksDetails" name="remarks">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="deleteModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this record?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="" class="btn btn-primary" id="confirmDeleteButton">Yes, Delete</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- javascripts -->
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -447,7 +722,7 @@
 <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
 <!--custome script for all page-->
 <script src="js/scripts.js"></script>
-
+<script src="js/vehicleMovement.js"></script>
 
 </body>
 

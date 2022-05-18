@@ -1,11 +1,7 @@
 package intec.be.Falconapp.controllers;
 
 
-import intec.be.Falconapp.models.Country;
-import intec.be.Falconapp.models.Location;
-import intec.be.Falconapp.models.State;
 import intec.be.Falconapp.models.VehicleStatus;
-import intec.be.Falconapp.services.StateService;
 import intec.be.Falconapp.services.VehicleStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +20,8 @@ public class VehicleStatusController {
 
     @GetMapping("/vehicleStatus")
     public String findAll(Model model) {
-        List<VehicleStatus> listOfVehicleStatus = vehicleStatusService.getAllVehiclesStatus();
-        model.addAttribute("vehicleStatus", vehicleStatusService.getAllVehiclesStatus());
+        List<VehicleStatus> listOfVehicleStatus = vehicleStatusService.findAll();
+        model.addAttribute("vehicleStatus", vehicleStatusService.findAll());
         return "VehicleStatus";
 
     }

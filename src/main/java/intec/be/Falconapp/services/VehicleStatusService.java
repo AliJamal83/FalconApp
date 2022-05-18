@@ -1,9 +1,7 @@
 package intec.be.Falconapp.services;
 
 
-import intec.be.Falconapp.models.Location;
 import intec.be.Falconapp.models.VehicleStatus;
-import intec.be.Falconapp.repositories.LocationRepository;
 import intec.be.Falconapp.repositories.VehicleStatusRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +16,7 @@ public class VehicleStatusService {
     private VehicleStatusRepository vehicleStatusRepository;
 
     //Get All vehicle status --> this method will return a list of countries
-    public List<VehicleStatus> getAllVehiclesStatus() {
+    public List<VehicleStatus> findAll() {
         return vehicleStatusRepository.findAll();
     }
 

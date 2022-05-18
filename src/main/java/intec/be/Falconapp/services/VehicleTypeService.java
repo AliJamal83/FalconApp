@@ -18,7 +18,7 @@ public class VehicleTypeService {
     private VehicleTypeRepository vehicleTypeRepository;
 
     //Get All vehicle types --> this method will return a list of countries
-    public List<VehicleType> getAllVehicleType() {
+    public List<VehicleType> findAll() {
         return vehicleTypeRepository.findAll();
     }
 

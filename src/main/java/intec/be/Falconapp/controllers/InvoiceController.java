@@ -33,11 +33,11 @@ public class InvoiceController {
     public String findAll(Model model){
 
         List<Invoice> listOfInvoices = invoiceService.findAll();
-        List<Client> listOfClients = clientService.findAll();
+        List<Client> listOfClients = clientService.getClients();
         List<InvoiceStatus> listOfInvoicesStatus = invoiceStatusService.findAll();
 
         model.addAttribute("invoices", invoiceService.findAll());
-        model.addAttribute("clients", clientService.findAll());
+        model.addAttribute("clients", clientService.getClients());
         model.addAttribute("invoiceStatuses", invoiceStatusService.findAll());
         return "Invoice";
     }

@@ -17,7 +17,7 @@ public class VehicleMakeService {
     private VehicleMakeRepository vehicleMakeRepository;
 
     //Get All Vehicle make --> will return list of vehicles
-    public List<VehicleMake> getAllVehicleMakes() {
+    public List<VehicleMake> findAll() {
         return vehicleMakeRepository.findAll();
     }
 
