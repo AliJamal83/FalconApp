@@ -12,7 +12,6 @@ import java.util.Optional;
 @Service
 public class LocationService {
 
-
     @Autowired
     private LocationRepository locationRepository;
 
@@ -34,5 +33,6 @@ public class LocationService {
     public void delete(Integer id) {
         locationRepository.deleteById(id);
     }
+
 
 }

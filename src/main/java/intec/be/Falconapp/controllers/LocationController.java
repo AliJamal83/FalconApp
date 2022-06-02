@@ -20,58 +20,44 @@ import java.util.Optional;
 public class LocationController {
 
 
-    @Autowired
-    private LocationService locationService;
-    @Autowired
-    private CountryService countryService;
-    @Autowired
-    private StateService stateService;
-
+    @Autowired	private StateService stateService;
+    @Autowired	private CountryService countryService;
+    @Autowired  private LocationService locationService;
 
     @GetMapping("/locations")
-    public String findAll(Model model) {
-      //  List<State> stateList = stateService.findAll();
+    public String getStates(Model model) {
+
+        //List<State> stateList = stateService.getStates();
         List<Country> countryList = countryService.findAll();
         List<Location> locationList = locationService.getLocations();
 
         model.addAttribute("countries", countryList);
         model.addAttribute("locations", locationList);
-      //  model.addAttribute("states", stateList);
+        //model.addAttribute("states", stateList);
         return "location";
-
     }
 
-
-    // Add New Location
     @PostMapping("/locations/addNew")
     public String addNew(Location location) {
         locationService.save(location);
         return "redirect:/locations";
-
     }
 
     @RequestMapping("locations/findById")
     @ResponseBody
-    public Optional<Location> findById(Integer id) {
+    public Optional<Location> findById(int id) {
         return locationService.findById(id);
-
     }
 
-
-    // Update Location
-    @RequestMapping(value = "/locations/update", method = {RequestMethod.PUT, RequestMethod.GET})
-    private String update(Location location) {
+    @RequestMapping(value="/locations/update", method= {RequestMethod.PUT, RequestMethod.GET})
+    public String update(Location location) {
         locationService.save(location);
         return "redirect:/locations";
     }
 
-
-    // Delete Location
-    @RequestMapping(value = "/locations", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value="/locations/delete", method= {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(Integer id) {
         locationService.delete(id);
         return "redirect:/locations";
     }
-
-
 }

@@ -15,7 +15,6 @@ public class UserService {
 
 
 
-
     @Autowired
     private UserRepository userRepository;
 
@@ -25,17 +24,18 @@ public class UserService {
     }
 
     //Get User By Id
-    public User findById(int id) {
+    public User findById(Integer id) {
         return userRepository.findById(id).orElse(null);
     }
 
     //Delete User
-    public void delete(int id) {
+    public void delete(Integer id) {
         userRepository.deleteById(id);
     }
 
     //Update User
     public void save(User user) {
+
         userRepository.save(user);
     }
 

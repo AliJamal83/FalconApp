@@ -34,7 +34,7 @@ public class VehicleMakeController {
 
     @RequestMapping("vehicleMakes/findById")
     @ResponseBody
-    public Optional<VehicleMake> findById(int id) {
+    public Optional<VehicleMake> findById(Integer id) {
         return vehicleMakeService.findById(id);
     }
 
@@ -49,5 +49,4 @@ public class VehicleMakeController {
         vehicleMakeService.delete(id);
         return "redirect:/vehicleMakes";
     }
-
 }

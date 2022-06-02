@@ -1,3 +1,9 @@
+/**
+ * the purpose of this class in to manage the user principal
+ * all the methods here will enable us to manage the user principal object
+ * **/
+
+
 package intec.be.Falconapp.models;
 
 import java.util.Collection;

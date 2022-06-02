@@ -15,14 +15,13 @@ import java.util.Optional;
 @Controller
 public class UserController {
 
-    @Autowired private UserService userService;
 
+    @Autowired private UserService userService;
 
     //Get All Users
     @GetMapping("users")
     public String findAll(Model model){
-        model.addAttribute("users", userService.findAll());
-        return "user";
+        return "User";
     }
 
     @RequestMapping("users/findById")
@@ -32,17 +31,25 @@ public class UserController {
         return userService.findById(id);
     }
 
-    //Modified method to Add a new user User
+    //Add User
     @PostMapping(value="users/addNew")
-    public RedirectView addNew(User user, RedirectAttributes redir) {
-
+    public String addNew(User user) {
         userService.save(user);
-
-        RedirectView  redirectView= new RedirectView("/login",true);
-
-        redir.addFlashAttribute("message",	"You successfully registered! You can now login");
-
-        return redirectView;
+        return "redirect:/users";
     }
+
+    @RequestMapping(value="users/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(User user) {
+        userService.save(user);
+        return "redirect:/users";
+    }
+
+    @RequestMapping(value="users/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    public String delete(Integer id) {
+        userService.delete(id);
+        return "redirect:/users";
+    }
+
+
 
 }
